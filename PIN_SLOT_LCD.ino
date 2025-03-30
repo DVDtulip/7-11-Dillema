@@ -65,17 +65,17 @@ void checkWin() {
     lcd.setCursor(4, 0);
     lcd.print("You Win!");
     // Winning sound: 5 quick beeps
-    for (int i = 0; i < 5; i++) {
-      tone(buzzerPin, 1000, 200);
-      delay(300);
-    }
+    //for (int i = 0; i < 5; i++) {
+    //  tone(buzzerPin, 1000, 200);
+    //  delay(300);
+    //}
   } else {
     lcd.clear();
     lcd.setCursor(3, 0);
     lcd.print("Try Again");
     // Losing sound: 1 short beep
-    tone(buzzerPin, 500, 1000);
-    delay(300);
+    //tone(buzzerPin, 500, 1000);
+    //delay(300);
   }
   delay(2000);
 }
