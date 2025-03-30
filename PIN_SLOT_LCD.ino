@@ -21,8 +21,9 @@ void setup() {
   clickCount++;
   if (clickCount == 2) {
     lcd.clear();
-    lcd.setCursor(0, 0);
+    lcd.setCursor(2, 0);
     lcd.print("Slot Machine");
+    lcd.setCursor(1, 1);
     lcd.print("Press To Start");
     delay(2000);
     clickCount++;
@@ -87,6 +88,8 @@ void Greeting() {
 
   lcd.clear();
 
+  lcd.print("Welcome to ProfHack's Casino!");
+  delay(1000);
   for (int positionCounter = 0; positionCounter < 15; positionCounter++) {
     lcd.setCursor(0, 0);
     lcd.print("Welcome to ProfHack's Casino!");
