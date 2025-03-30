@@ -14,6 +14,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 // Define the simple text symbols for the slot machine reels
 const char* symbols[] = {"$", "7", "*", "@", "#", "&", "+", "!"}; // Dollar, Seven, Asterisk, At, Hash, Ampersand, Plus, Exclamation
 const int numSymbols = sizeof(symbols) / sizeof(symbols[0]);
+const int buzzerPin = 5; // Pin for the buzzer
+int buttonState = 0;
 
 const int buttonPin = 2;
 bool gameStarted = false;
@@ -182,10 +184,18 @@ void loop() {
     display.setTextSize(2);
     display.setCursor(0, 50);
     display.println("**WIN!**");
+    // Winning sound: 5 quick beeps
+    for (int i = 0; i < 5; i++) {
+      tone(buzzerPin, 1000, 200); // Play tone at 1000 Hz for 200ms
+      delay(300); // Short delay between beeps
+    }
   }
 
   display.display();
   delay(2000); // Display result for 2 seconds (adjust as needed)
+  // Losing sound: 1 short beep
+  tone(buzzerPin, 500, 1000); // Play tone at 500 Hz for 1000ms
+  delay(300);
 
   // Implement the 5-second countdown after the result
   display.clearDisplay();
