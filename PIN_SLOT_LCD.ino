@@ -66,6 +66,8 @@ void checkWin() {
     lcd.clear();
     lcd.setCursor(4, 0);
     lcd.print("You Win!");
+    lcd.setCursor(3, 1);
+    lcd.print("Play Again?");
     // Winning sound: 5 quick beeps
     for (int i = 0; i < 5; i++) {
       tone(buzzerPin, 1000, 200);
@@ -74,6 +76,8 @@ void checkWin() {
   } else {
     lcd.clear();
     lcd.setCursor(3, 0);
+    lcd.print("You Lose!");
+    lcd.setCursor(3, 1);
     lcd.print("Try Again");
     // Losing sound: 1 short beep
     tone(buzzerPin, 500, 1000);
